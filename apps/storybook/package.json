@@ -1,0 +1,37 @@
+{
+    "name": "storybook",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "start-storybook -p 6006",
+        "build": "build-storybook --docs",
+        "preview-storybook": "serve storybook-static",
+        "clean": "rm -rf .turbo && rm -rf node_modules"
+    },
+    "dependencies": {
+        "design-system": "*"
+    },
+    "devDependencies": {
+        "@storybook/addon-a11y": "^6.5.13",
+        "@storybook/addon-actions": "^6.5.13",
+        "@storybook/addon-controls": "^6.5.13",
+        "@storybook/addon-docs": "^6.5.13",
+        "@storybook/addon-essentials": "^6.5.13",
+        "@storybook/addon-interactions": "^6.5.13",
+        "@storybook/addon-links": "^6.5.13",
+        "@storybook/addon-postcss": "^2.0.0",
+        "@storybook/builder-webpack5": "^6.5.13",
+        "@storybook/manager-webpack5": "^6.5.13",
+        "@storybook/react": "^6.5.13",
+        "@types/react": "^17.0.37",
+        "@types/react-dom": "^17.0.11",
+        "autoprefixer": "^10.4.13",
+        "postcss": "^8.4.19",
+        "postcss-cli": "^10.0.0",
+        "postcss-import": "^15.0.0",
+        "postcss-loader": "^7.0.1",
+        "tailwindcss": "^3.2.4",
+        "tsconfig": "*",
+        "typescript": "^4.5.3"
+    }
+}
