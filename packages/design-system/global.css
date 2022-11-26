@@ -19,9 +19,3 @@ a {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-#__next {
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
-}

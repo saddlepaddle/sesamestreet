@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "start-storybook -p 6006",
+        "storybook": "start-storybook -p 6006",
         "build": "build-storybook --docs",
         "preview-storybook": "serve storybook-static",
         "clean": "rm -rf .turbo && rm -rf node_modules"
@@ -23,8 +23,8 @@
         "@storybook/builder-webpack5": "^6.5.13",
         "@storybook/manager-webpack5": "^6.5.13",
         "@storybook/react": "^6.5.13",
-        "@types/react": "^17.0.37",
-        "@types/react-dom": "^17.0.11",
+        "@types/react": "^18.0.25",
+        "@types/react-dom": "^18.0.9",
         "autoprefixer": "^10.4.13",
         "postcss": "^8.4.19",
         "postcss-cli": "^10.0.0",
