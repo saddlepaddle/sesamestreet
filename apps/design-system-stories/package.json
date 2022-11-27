@@ -1,5 +1,5 @@
 {
-    "name": "storybook",
+    "name": "design-system-stories",
     "version": "0.0.0",
     "private": true,
     "scripts": {
