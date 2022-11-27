@@ -3,10 +3,7 @@ import { ReactNode } from 'react';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html className='bg-zinc-500 antialiased' lang='en'>
-            <head>
-                <title>Documentation Example</title>
-            </head>
+        <html className='bg-zinc-600 antialiased' lang='en'>
             <body>
                 <div className=''>{children}</div>
             </body>
