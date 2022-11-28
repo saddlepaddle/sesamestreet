@@ -17,6 +17,7 @@ interface BaseButtonProps {
     variant?: ButtonVariant;
     icon?: IconDefinition;
     iconPosition?: ButtonIconPosition;
+    disabled?: boolean;
 }
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement>, BaseButtonProps {}
 
@@ -27,15 +28,27 @@ const sizeToIconSizes: Record<ButtonSize, string> = {
 };
 
 const variantToColors: Record<ButtonVariant, string> = {
-    primary: 'border-gray-300 text-white bg-primary-600 hover:bg-primary-700 ',
-    secondary: 'border-gray-300 text-primary-700 bg-primary-100 hover:bg-primary-200',
-    outline: 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50',
+    primary: 'border-gray-300 text-white bg-primary-800',
+    secondary: 'border-gray-300 text-primary-900 bg-primary-100',
+    outline: 'border-gray-300 text-gray-700 bg-white',
+};
+
+const variantToActiveButtonColors: Record<ButtonVariant, string> = {
+    primary: 'hover:bg-primary-900',
+    secondary: 'hover:bg-primary-200',
+    outline: 'hover:bg-gray-50',
 };
 
 const sizeToSizes: Record<ButtonSize, string> = {
     small: 'py-1.5 px-2.5 text-xs rounded-sm',
     medium: 'pt-2.5 pb-2 px-4 text-sm rounded-md',
     large: 'px-6 py-3 text-base rounded-md',
+};
+
+const getDisabledProps = (disabled: boolean) => {
+    return disabled
+        ? 'cursor-auto opacity-50'
+        : 'focus:ring-primary-500 focus:outline-none focus:ring-2 focus:ring-offset-2';
 };
 
 const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
@@ -61,12 +74,13 @@ const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
 const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
     (
         {
+            className,
+            onClick,
             size = 'medium',
             variant = 'primary',
             icon,
             iconPosition = 'left',
-
-            className,
+            disabled = false,
             children,
             ...props
         },
@@ -76,11 +90,15 @@ const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
             <button
                 className={classNames(
                     className,
-                    'line-clamp-1 focus:ring-primary-500 inline-flex items-center border font-semibold shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2',
+                    'line-clamp-1  inline-flex items-center border font-semibold shadow-sm',
                     variantToColors[variant],
                     sizeToSizes[size],
+                    disabled ? '' : variantToActiveButtonColors[variant],
+                    getDisabledProps(disabled),
                 )}
                 ref={ref as RefObject<HTMLButtonElement>}
+                onClick={disabled ? undefined : onClick}
+                tabIndex={disabled ? -1 : undefined}
                 {...props}
             >
                 {iconPosition === 'left' && (

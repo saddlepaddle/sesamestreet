@@ -19,14 +19,25 @@ export const AllButtons = () => (
         {BUTTON_VARIANT_OPTIONS.map((variant) => (
             <div key={variant} className='flex items-center justify-center space-x-3'>
                 {BUTTON_SIZE_OPTIONS.map((size) => (
-                    <Button
-                        key={`${size} ${variant}`}
-                        size={size}
-                        variant={variant}
-                        onClick={action('Clicked Button')}
-                    >
-                        Sample button
-                    </Button>
+                    <>
+                        <Button
+                            key={`${size} ${variant}`}
+                            size={size}
+                            variant={variant}
+                            onClick={action('Clicked Button')}
+                        >
+                            Sample
+                        </Button>
+                        <Button
+                            key={`${size} ${variant} disabled`}
+                            size={size}
+                            variant={variant}
+                            onClick={action('Clicked Button')}
+                            disabled
+                        >
+                            Disabled
+                        </Button>
+                    </>
                 ))}
             </div>
         ))}
@@ -38,15 +49,27 @@ export const IconLeft = () => (
         {BUTTON_SIZE_OPTIONS.map((size) => (
             <div key={size} className='flex items-center justify-center space-x-3'>
                 {BUTTON_VARIANT_OPTIONS.map((variant) => (
-                    <Button
-                        key={`${size} ${variant}`}
-                        size={size}
-                        variant={variant}
-                        icon={faOtter}
-                        onClick={action('Clicked Button')}
-                    >
-                        Sample button
-                    </Button>
+                    <>
+                        <Button
+                            key={`${size} ${variant}`}
+                            size={size}
+                            variant={variant}
+                            icon={faOtter}
+                            onClick={action('Clicked Button')}
+                        >
+                            Sample
+                        </Button>
+                        <Button
+                            key={`${size} ${variant} disabled`}
+                            size={size}
+                            variant={variant}
+                            icon={faOtter}
+                            onClick={action('Clicked Button')}
+                            disabled
+                        >
+                            Disabled
+                        </Button>
+                    </>
                 ))}
             </div>
         ))}
@@ -58,15 +81,27 @@ export const IconRight = () => (
         {BUTTON_SIZE_OPTIONS.map((size) => (
             <div key={size} className='flex items-center justify-center space-x-3'>
                 {BUTTON_VARIANT_OPTIONS.map((variant) => (
-                    <Button
-                        key={`${size} ${variant}`}
-                        size={size}
-                        variant={variant}
-                        icon={faStopwatch}
-                        onClick={action('Clicked Button')}
-                    >
-                        Sample button
-                    </Button>
+                    <>
+                        <Button
+                            key={`${size} ${variant}`}
+                            size={size}
+                            variant={variant}
+                            icon={faStopwatch}
+                            onClick={action('Clicked Button')}
+                        >
+                            Sample
+                        </Button>
+                        <Button
+                            key={`${size} ${variant} disabled`}
+                            size={size}
+                            variant={variant}
+                            icon={faStopwatch}
+                            onClick={action('Clicked Button')}
+                            disabled
+                        >
+                            Disabled
+                        </Button>
+                    </>
                 ))}
             </div>
         ))}
