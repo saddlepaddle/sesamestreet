@@ -2,6 +2,7 @@ import React, { HTMLAttributes, forwardRef, RefObject } from 'react';
 import classNames from 'classnames';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Switch } from '@headlessui/react';
 
 export const BUTTON_SIZE_OPTIONS = ['small', 'medium', 'large'] as const;
 export type ButtonSize = typeof BUTTON_SIZE_OPTIONS[number];
@@ -71,45 +72,12 @@ const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
     );
 };
 
-const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
-    (
-        {
-            className,
-            onClick,
-            size = 'medium',
-            variant = 'primary',
-            icon,
-            iconPosition = 'left',
-            disabled = false,
-            children,
-            ...props
-        },
-        ref,
-    ) => {
-        return (
-            <button
-                className={classNames(
-                    className,
-                    'line-clamp-1 inline-flex items-center border font-semibold shadow-sm transition-colors duration-75',
-                    variantToColors[variant],
-                    sizeToSizes[size],
-                    disabled ? '' : variantToActiveButtonColors[variant],
-                    getDisabledProps(disabled),
-                )}
-                ref={ref as RefObject<HTMLButtonElement>}
-                onClick={disabled ? undefined : onClick}
-                tabIndex={disabled ? -1 : undefined}
-                {...props}
-            >
-                {iconPosition === 'left' && (
-                    <ButtonIcon size={size} icon={icon} iconPosition={iconPosition} />
-                )}
-                {children}
-                {iconPosition === 'right' && (
-                    <ButtonIcon size={size} icon={icon} iconPosition={iconPosition} />
-                )}
-            </button>
-        );
-    },
-);
-export default Button;
+export interface ToggleProps {
+    value?: boolean;
+    onChange?: (value: boolean) => void;
+    disabled?: boolean;
+}
+
+export default function Toggle({ value, onChange, disabled }: ToggleProps) {
+    return <Switch checked={value} onChange={onChange} disabled={disabled} />;
+}
