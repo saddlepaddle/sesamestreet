@@ -29,7 +29,7 @@ const sizeToIconSizes: Record<ButtonSize, string> = {
 
 const variantToColors: Record<ButtonVariant, string> = {
     primary: 'border-gray-300 text-white bg-primary-800',
-    secondary: 'border-gray-300 text-primary-900 bg-primary-100',
+    secondary: 'border-gray-300 text-primary-700 bg-primary-100',
     outline: 'border-gray-300 text-gray-700 bg-white',
 };
 
