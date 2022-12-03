@@ -4,6 +4,9 @@
 
 1. Running `yarn` commands from the root directory applies the linked command to each project in the `app/` directory. See [Turborepo's documentation](https://turbo.build/repo/docs/core-concepts/monorepos/filtering) for more advanced applications (i.e. running individual packages)
 
+-   `yarn storybook` will deploy stories
+-   `yarn dev` will start up dev environments for each project locally
+
 ## Apps & Packages
 
 -   `apps/sesamestreet`: WIP - will be where new tools and software will be used to build a dummy website
