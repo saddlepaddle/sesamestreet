@@ -148,7 +148,7 @@ importers:
       '@fortawesome/react-fontawesome': ^0.2.0
       '@types/react': 18.0.26
       autoprefixer: ^10.4.13
-      config: workspace:*
+      config: workspace:0.0.0
       design-system: workspace:0.0.0
       encoding: ^0.1.13
       eslint: 8.29.0
