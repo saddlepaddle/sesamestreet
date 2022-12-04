@@ -1,14 +1,13 @@
 'server-only';
 
 import 'design-system/global.css';
-import { ReactNode } from 'react';
+
 import { Inter } from '@next/font/google';
-import { headers, cookies } from 'next/headers';
+import clsx from 'clsx';
+import { ReactNode } from 'react';
+
 import SupabaseListener from '../components/SupabaseListener';
 import createClient from '../utils/supabase-server';
-
-import { Database } from '../db_types';
-import clsx from 'clsx';
 
 const inter = Inter({
     subsets: ['latin'],

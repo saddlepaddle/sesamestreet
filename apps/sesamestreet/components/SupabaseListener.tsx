@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+
 import supabase from '../utils/supabase-browser';
 
 export default function SupabaseListener({ accessToken }: { accessToken?: string }) {
@@ -13,7 +14,7 @@ export default function SupabaseListener({ accessToken }: { accessToken?: string
                 router.refresh();
             }
         });
-    }, [accessToken]);
+    }, [accessToken, router]);
 
     return null;
 }

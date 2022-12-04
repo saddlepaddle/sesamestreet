@@ -1,9 +1,9 @@
 import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 const redirectResponse = (request: NextRequest, pathname: string): NextResponse => {
     const redirectUrl = request.nextUrl.clone();
+
     redirectUrl.pathname = pathname;
     return NextResponse.redirect(redirectUrl);
 };

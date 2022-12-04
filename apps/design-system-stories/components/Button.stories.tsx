@@ -1,7 +1,7 @@
-import { ComponentMeta } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { Button } from 'design-system';
 import { faOtter, faStopwatch } from '@fortawesome/free-solid-svg-icons';
+import { action } from '@storybook/addon-actions';
+import { ComponentMeta } from '@storybook/react';
+import { Button } from 'design-system';
 import {
     BUTTON_SIZE_OPTIONS,
     BUTTON_VARIANT_OPTIONS,

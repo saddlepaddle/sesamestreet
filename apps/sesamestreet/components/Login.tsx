@@ -1,7 +1,8 @@
 'use client';
 
-import supabase from '../utils/supabase-browser';
 import { Button } from 'design-system';
+
+import supabase from '../utils/supabase-browser';
 
 // Supabase auth needs to be triggered client-side
 export default function Login() {
