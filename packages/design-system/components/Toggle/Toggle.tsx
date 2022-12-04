@@ -60,7 +60,7 @@ const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
     return (
         <FontAwesomeIcon
             icon={icon}
-            className={classNames(sizeToIconSizes[size!], {
+            className={clsx(sizeToIconSizes[size!], {
                 '-ml-0.5 mr-2': size === 'small' && iconPosition === 'left',
                 'ml-2 -mr-0.5': size === 'small' && iconPosition === 'right',
                 '-ml-1 mr-2': size === 'medium' && iconPosition === 'left',

@@ -13,10 +13,7 @@ const redirectResponse = (request: NextRequest, pathname: string): NextResponse 
 export async function middleware(request: NextRequest) {
     const response = NextResponse.next();
 
-    const supabase = createMiddlewareSupabaseClient({
-        req: request,
-        res: response,
-    });
+    const supabase = createMiddlewareSupabaseClient({ req: request, res: response });
 
     const {
         data: { session },
@@ -32,3 +29,7 @@ export async function middleware(request: NextRequest) {
 
     return response;
 }
+
+export const config = {
+    matcher: ['/optional-session', '/required-session', '/realtime', '/'],
+};

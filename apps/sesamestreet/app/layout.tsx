@@ -5,28 +5,32 @@ import { ReactNode } from 'react';
 import { Inter } from '@next/font/google';
 import { headers, cookies } from 'next/headers';
 import SupabaseListener from '../components/SupabaseListener';
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import createClient from '../utils/supabase-server';
+
 import { Database } from '../db_types';
+import clsx from 'clsx';
 
 const inter = Inter({
     subsets: ['latin'],
 });
 
+export const revalidate = 0;
+
 export default async function RootLayout({ children }: { children: ReactNode }) {
-    const supabase = createServerComponentSupabaseClient<Database>({
-        headers,
-        cookies,
-    });
+    const supabase = createClient();
 
     const {
         data: { session },
     } = await supabase.auth.getSession();
 
     return (
-        <html lang='en' className='bg-sky-900 font-sans antialiased md:subpixel-antialiased'>
+        <html
+            lang='en'
+            className={clsx(inter.className, 'bg-sky-900 antialiased md:subpixel-antialiased')}
+        >
             <body>
-                <div className=''>{children}</div>
                 <SupabaseListener accessToken={session?.access_token} />
+                <div className=''>{children}</div>
             </body>
         </html>
     );

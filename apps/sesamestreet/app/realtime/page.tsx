@@ -1,8 +1,6 @@
 'server-only';
 
-import { headers, cookies } from 'next/headers';
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { Database } from '../../db_types';
+import createClient from '../../utils/supabase-server';
 
 // do not cache this page
 export const revalidate = 0;
@@ -10,12 +8,9 @@ export const revalidate = 0;
 // this component fetches the current posts server-side
 // and subscribes to new posts client-side
 export default async function Realtime() {
-    const supabase = createServerComponentSupabaseClient<Database>({
-        headers,
-        cookies,
-    });
+    const supabase = createClient();
 
-    const { data } = await supabase.from('posts').select('*');
+    const { data } = await supabase.from('shows').select('*');
 
     // data can be passed from server components to client components
     // this allows us to fetch the initial posts before rendering the page

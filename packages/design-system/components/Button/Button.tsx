@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, forwardRef, RefObject } from 'react';
-import classNames from 'classnames';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import clsx from 'clsx';
 
 export const BUTTON_SIZE_OPTIONS = ['small', 'medium', 'large'] as const;
 export type ButtonSize = typeof BUTTON_SIZE_OPTIONS[number];
@@ -59,7 +59,7 @@ const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
     return (
         <FontAwesomeIcon
             icon={icon}
-            className={classNames(sizeToIconSizes[size!], {
+            className={clsx(sizeToIconSizes[size!], {
                 '-ml-0.5 mr-2': size === 'small' && iconPosition === 'left',
                 'ml-2 -mr-0.5': size === 'small' && iconPosition === 'right',
                 '-ml-1 mr-2': size === 'medium' && iconPosition === 'left',
@@ -88,7 +88,7 @@ const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
     ) => {
         return (
             <button
-                className={classNames(
+                className={clsx(
                     className,
                     'line-clamp-1 inline-flex items-center border font-semibold shadow-sm transition-colors duration-75',
                     variantToColors[variant],

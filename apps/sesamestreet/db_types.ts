@@ -3,24 +3,24 @@ export type Json = string | number | boolean | null | { [key: string]: Json } | 
 export interface Database {
     public: {
         Tables: {
-            posts: {
+            shows: {
                 Row: {
-                    id: string;
-                    created_at: string;
-                    title: string;
-                    user_id: string | null;
+                    id: number;
+                    created_at: string | null;
+                    title: string | null;
+                    author: string | null;
                 };
                 Insert: {
-                    id?: string;
-                    created_at?: string;
-                    title: string;
-                    user_id?: string | null;
+                    id?: number;
+                    created_at?: string | null;
+                    title?: string | null;
+                    author?: string | null;
                 };
                 Update: {
-                    id?: string;
-                    created_at?: string;
-                    title?: string;
-                    user_id?: string | null;
+                    id?: number;
+                    created_at?: string | null;
+                    title?: string | null;
+                    author?: string | null;
                 };
             };
         };
@@ -28,7 +28,10 @@ export interface Database {
             [_ in never]: never;
         };
         Functions: {
-            [_ in never]: never;
+            install_available_extensions_and_test: {
+                Args: Record<PropertyKey, never>;
+                Returns: boolean;
+            };
         };
         Enums: {
             [_ in never]: never;
