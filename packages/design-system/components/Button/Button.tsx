@@ -1,7 +1,7 @@
-import React, { HTMLAttributes, forwardRef, RefObject } from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
+import React, { forwardRef, HTMLAttributes, RefObject } from 'react';
 
 export const BUTTON_SIZE_OPTIONS = ['small', 'medium', 'large'] as const;
 export type ButtonSize = typeof BUTTON_SIZE_OPTIONS[number];
@@ -112,4 +112,7 @@ const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
         );
     },
 );
+
+Button.displayName = 'Button';
+
 export default Button;
