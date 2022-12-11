@@ -1,5 +1,5 @@
 module.exports = {
-    stories: ['../components/**/*.stories.tsx'],
+    stories: ['../components/*.stories.tsx'],
     staticDirs: ['../components'],
     addons: [
         '@storybook/addon-a11y',

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React, { forwardRef, HTMLAttributes, RefObject } from 'react';
 
-export const BUTTON_SIZE_OPTIONS = ['small', 'medium', 'large'] as const;
+export const BUTTON_SIZE_OPTIONS = ['small', 'default', 'large'] as const;
 export type ButtonSize = typeof BUTTON_SIZE_OPTIONS[number];
 
 export const BUTTON_VARIANT_OPTIONS = ['primary', 'secondary', 'outline'];
@@ -23,7 +23,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement>, BaseButt
 
 const sizeToIconSizes: Record<ButtonSize, string> = {
     small: 'h-4 w-4',
-    medium: 'h-5 w-5',
+    default: 'h-5 w-5',
     large: 'h-6 w-6',
 };
 
@@ -41,7 +41,7 @@ const variantToActiveButtonColors: Record<ButtonVariant, string> = {
 
 const sizeToSizes: Record<ButtonSize, string> = {
     small: 'py-1.5 px-2.5 text-xs rounded-sm',
-    medium: 'pt-2.5 pb-2 px-4 text-sm rounded-md',
+    default: 'pt-2.5 pb-2 px-4 text-sm rounded-md',
     large: 'px-6 py-3 text-base rounded-md',
 };
 
@@ -62,8 +62,8 @@ const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
             className={clsx(sizeToIconSizes[size!], {
                 '-ml-0.5 mr-2': size === 'small' && iconPosition === 'left',
                 'ml-2 -mr-0.5': size === 'small' && iconPosition === 'right',
-                '-ml-1 mr-2': size === 'medium' && iconPosition === 'left',
-                'ml-2 -mr-1': size === 'medium' && iconPosition === 'right',
+                '-ml-1 mr-2': size === 'default' && iconPosition === 'left',
+                'ml-2 -mr-1': size === 'default' && iconPosition === 'right',
                 '-ml-1 mr-3': size === 'large' && iconPosition === 'left',
                 'ml-3 -mr-1': size === 'large' && iconPosition === 'right',
             })}
@@ -76,7 +76,7 @@ const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
         {
             className,
             onClick,
-            size = 'medium',
+            size = 'default',
             variant = 'primary',
             icon,
             iconPosition = 'left',
