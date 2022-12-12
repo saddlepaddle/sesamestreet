@@ -29,7 +29,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
             ref={ref}
             className={clsx(
                 sizeToRootSizes[size],
-                'inline-flex items-center justify-center align-middle select-none overflow-hidden rounded-full bg-slate-100',
+                'inline-flex items-center justify-center align-middle select-none overflow-hidden rounded-full bg-gray-100',
             )}
         >
             <BaseAvatar.Image
@@ -40,7 +40,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
             <BaseAvatar.Fallback
                 className={clsx(
                     sizeToTextSizes[size],
-                    'w-full h-full flex items-center justify-center bg-slate-100 text-slate-700',
+                    'w-full h-full flex items-center justify-center bg-gray-100 text-gray-700',
                 )}
                 delayMs={600}
             >

@@ -12,14 +12,13 @@ export type ButtonVariant = typeof BUTTON_VARIANT_OPTIONS[number];
 export const BUTTON_ICON_POSITION_OPTIONS = ['left', 'right'];
 export type ButtonIconPosition = typeof BUTTON_ICON_POSITION_OPTIONS[number];
 
-interface BaseButtonProps {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     size?: ButtonSize;
     variant?: ButtonVariant;
     icon?: IconDefinition;
     iconPosition?: ButtonIconPosition;
     disabled?: boolean;
 }
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement>, BaseButtonProps {}
 
 const sizeToIconSizes: Record<ButtonSize, string> = {
     small: 'h-4 w-4',
@@ -29,13 +28,13 @@ const sizeToIconSizes: Record<ButtonSize, string> = {
 
 const variantToColors: Record<ButtonVariant, string> = {
     primary: 'border-gray-300 text-white bg-primary-800',
-    secondary: 'border-gray-300 text-primary-700 bg-primary-100',
+    secondary: 'border-gray-300 text-primary-700 bg-primary-200',
     outline: 'border-gray-300 text-gray-700 bg-white',
 };
 
 const variantToActiveButtonColors: Record<ButtonVariant, string> = {
     primary: 'hover:bg-primary-900',
-    secondary: 'hover:bg-primary-200',
+    secondary: 'hover:bg-primary-300',
     outline: 'hover:bg-gray-50',
 };
 
@@ -51,7 +50,7 @@ const getDisabledProps = (disabled: boolean) => {
         : 'focus:ring-primary-500 focus:outline-none focus:ring-2 focus:ring-offset-2';
 };
 
-const ButtonIcon = ({ icon, iconPosition, size }: BaseButtonProps) => {
+const ButtonIcon = ({ icon, iconPosition, size }: ButtonProps) => {
     if (!icon) {
         return null;
     }
