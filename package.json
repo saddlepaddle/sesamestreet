@@ -11,9 +11,10 @@
         "dev": "turbo run dev",
         "storybook": "turbo run storybook",
         "lint": "turbo run lint",
+        "clean": "turbo run clean",
         "format": "prettier --write \"**/*.{ts,tsx,md}\"",
         "prepare": "husky install",
-        "preinstall": "npx only-allow pnpm"
+        "preinstall": "npx only-allow yarn"
     },
     "devDependencies": {
         "eslint": "^8.29.0",

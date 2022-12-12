@@ -12,5 +12,5 @@ export default async function RequiredSession() {
 
     const { data } = await supabase.from('shows').select('*');
 
-    return <span>Hello jat {JSON.stringify(data)}</span>;
+    return <span>ff jat {JSON.stringify(data)}</span>;
 }

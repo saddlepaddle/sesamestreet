@@ -3,8 +3,8 @@
     "version": "0.0.0",
     "license": "MIT",
     "devDependencies": {
-        "tsconfig": "workspace:0.0.0",
-        "config": "workspace:0.0.0",
+        "tsconfig": "*",
+        "config": "*",
         "typescript": "^4.9.3"
     }
 }
