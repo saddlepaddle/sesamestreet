@@ -20,10 +20,10 @@ export async function middleware(request: NextRequest) {
     } = await supabase.auth.getSession();
 
     if (session && request.nextUrl.pathname === '/') {
-        return redirectResponse(request, '/required-session');
+        return redirectResponse(request, '/dashboard');
     }
 
-    if (!session && request.nextUrl.pathname.startsWith('/required-session')) {
+    if (!session && request.nextUrl.pathname.startsWith('/dashboard')) {
         return redirectResponse(request, '/');
     }
 
@@ -31,5 +31,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/optional-session', '/required-session', '/realtime', '/'],
+    matcher: ['/dashboard', '/'],
 };

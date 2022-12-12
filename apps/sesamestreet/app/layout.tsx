@@ -25,11 +25,11 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     return (
         <html
             lang='en'
-            className={clsx(inter.className, 'bg-sky-900 antialiased md:subpixel-antialiased')}
+            className={clsx(inter.className, 'bg-gray-50 antialiased md:subpixel-antialiased')}
         >
-            <body>
+            <body className='w-screen h-screen flex'>
                 <SupabaseListener accessToken={session?.access_token} />
-                <div className=''>{children}</div>
+                {children}
             </body>
         </html>
     );
