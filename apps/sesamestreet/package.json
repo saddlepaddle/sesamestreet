@@ -25,6 +25,7 @@
         "react-dom": "18.2.0"
     },
     "devDependencies": {
+        "@next/bundle-analyzer": "^13.0.6",
         "@types/react": "18.0.26",
         "autoprefixer": "^10.4.13",
         "config": "workspace:0.0.0",
