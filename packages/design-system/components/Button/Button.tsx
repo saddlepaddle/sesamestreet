@@ -87,6 +87,7 @@ const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
     ) => {
         return (
             <button
+                {...props}
                 className={clsx(
                     className,
                     'line-clamp-1 inline-flex items-center border font-semibold shadow-sm transition-colors duration-75',
@@ -98,7 +99,6 @@ const Button = forwardRef<RefObject<HTMLButtonElement>, ButtonProps>(
                 ref={ref as RefObject<HTMLButtonElement>}
                 onClick={disabled ? undefined : onClick}
                 tabIndex={disabled ? -1 : undefined}
-                {...props}
             >
                 {iconPosition === 'left' && (
                     <ButtonIcon size={size} icon={icon} iconPosition={iconPosition} />

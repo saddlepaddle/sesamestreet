@@ -1,6 +1,9 @@
 'use server';
 
+import { faBell } from '@fortawesome/free-regular-svg-icons';
 import clsx from 'clsx';
+
+import SidebarLink from './components/SidebarLink';
 
 export interface SidebarProps {
     className?: string;
@@ -11,11 +14,10 @@ export default function Sidebar({ className }: SidebarProps) {
         <aside
             className={clsx(
                 className,
-                'flex w-32 h-full flex-col items-center justify-center bg-gray-800 p-4',
+                'flex h-full w-fit flex-col items-start justify-center bg-gray-800 p-2',
             )}
         >
-            <span className='text-3xl font-extrabold text-green-900'>Welcome!</span>
-            <span className='text-3xl font-extrabold text-green-900'>Line two!</span>
+            <SidebarLink href='/home' tooltip='Home' icon={faBell} />
         </aside>
     );
 }
